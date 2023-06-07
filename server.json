@@ -1,0 +1,92 @@
+{ 
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Site Development",
+      "type": "income",
+      "category": "sale",
+      "price": 7000,
+      "createdAt": "2022-04-13T06:58:03.930Z"
+    },
+    {
+      "id": 2,
+      "description": "IFood",
+      "type": "outcome",
+      "category": "food",
+      "price": 25,
+      "createdAt": "2022-04-10T19:35:08.930Z"
+    },
+    {
+      "id": 3,
+      "description": "Apartment Rent",
+      "type": "outcome",
+      "category": "housing",
+      "price": 750,
+      "createdAt": "2022-03-27T12:43:15.930Z"
+    },
+    {
+      "id": 4,
+      "description": "Computer Sale",
+      "type": "income",
+      "category": "sale",
+      "price": 2300,
+      "createdAt": "2022-03-15T16:52:53.930Z"
+    },
+    {
+      "id": 5,
+      "description": "Site Development",
+      "type": "income",
+      "category": "sale",
+      "price": 6000,
+      "createdAt": "2022-03-13T09:23:12.930Z"
+    },
+    {
+      "id": 6,
+      "description": "Dinner at Plaza's",
+      "type": "outcome",
+      "category": "food",
+      "price": 39,
+      "createdAt": "2022-03-10T20:33:56.930Z"
+    },
+    {
+      "id": 7,
+      "description": "Apartment Rent",
+      "type": "outcome",
+      "category": "housing",
+      "price": 750,
+      "createdAt": "2022-02-27T12:40:10.930Z"
+    },
+    {
+      "id": 8,
+      "description": "Salary",
+      "type": "income",
+      "category": "salary",
+      "price": 5400,
+      "createdAt": "2022-02-15T15:25:17.930Z"
+    },
+    {
+      "id": 9,
+      "description": "IFood",
+      "type": "outcome",
+      "category": "food",
+      "price": 25,
+      "createdAt": "2022-02-05T19:07:56.930Z"
+    },
+    {
+      "id": 10,
+      "description": "Headset",
+      "type": "outcome",
+      "category": "itens",
+      "price": 75,
+      "createdAt": "2022-02-02T16:45:23.930Z"
+    },
+    {
+      "id": 11,
+      "description": "Headset",
+      "type": "outcome",
+      "category": "itens",
+      "price": 75,
+      "createdAt": "2022-02-02T16:45:23.930Z"
+    }
+  ]
+}
