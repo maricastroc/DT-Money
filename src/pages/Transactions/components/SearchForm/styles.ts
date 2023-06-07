@@ -6,6 +6,7 @@ export const SearchFormContainer = styled.form`
   gap: 0.5rem;
 
   input {
+    position: relative;
     flex: 1;
     border-radius: 6px;
     border: 1px solid ${(props) => props.theme['gray-900']};
@@ -16,6 +17,14 @@ export const SearchFormContainer = styled.form`
     &::placeholder {
       color: ${(props) => props.theme['gray-500']};
     }
+  }
+
+  > svg {
+    cursor: pointer;
+    position: absolute;
+    left: 74.5%;
+    top: 49.2%;
+    color: ${(props) => props.theme['gray-400']};
   }
 
   button {
@@ -35,7 +44,12 @@ export const SearchFormContainer = styled.form`
       display: none;
     }
 
-    &:hover {
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    &:not(:disabled):hover {
       border: 1px solid ${(props) => props.theme['blue-500']};
       background-color: ${(props) => props.theme['blue-500']};
       color: ${(props) => props.theme.white};
