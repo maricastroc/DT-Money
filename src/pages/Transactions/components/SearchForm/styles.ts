@@ -6,11 +6,12 @@ export const SearchFormContainer = styled.form`
   gap: 0.5rem;
 
   input {
+    appearance: none;
     position: relative;
     flex: 1;
     border-radius: 6px;
     border: 1px solid ${(props) => props.theme['gray-900']};
-    background-color: ${(props) => props.theme['gray-900']};
+    background-color: ${(props) => props.theme['gray-900']} !important;
     color: ${(props) => props.theme['gray-300']};
     padding: 1rem;
 
@@ -19,7 +20,9 @@ export const SearchFormContainer = styled.form`
     }
 
     &:-webkit-autofill,
-    &:-webkit-autofill-selection {
+    &:-webkit-autofill-selection,
+    &:-webkit-internal-autofill-selected {
+      appearance: initial !important;
       background-color: ${(props) => props.theme['gray-900']} !important;
     }
 

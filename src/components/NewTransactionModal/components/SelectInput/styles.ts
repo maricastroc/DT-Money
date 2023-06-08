@@ -35,6 +35,7 @@ export const SelectContent = styled(Select.SelectContent)`
   background-color: ${(props) => props.theme['gray-900']};
   border: none;
   border-radius: 6px;
+  z-index: 10;
 
   @media (min-width: 1024px) {
     width: 26rem;
@@ -61,6 +62,7 @@ export const SelectItem = styled(Select.SelectItem)`
   height: 1.8rem;
   padding: 0 1.2rem;
   user-select: none;
+  z-index: 10;
 
   &:focus {
     color: ${(props) => props.theme['blue-300']};

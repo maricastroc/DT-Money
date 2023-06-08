@@ -4,6 +4,7 @@ import { Summary } from '../../components/Summary'
 import { SearchForm } from './components/SearchForm'
 import {
   DateItem,
+  IconContainer,
   TransactionsContainer,
   TransactionCardData,
   TransactionsList,
@@ -14,12 +15,20 @@ import {
 } from './styles'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
-import { TagSimple, CalendarBlank } from 'phosphor-react'
+import { TagSimple, CalendarBlank, Trash } from 'phosphor-react'
 import { Pagination } from './components/Pagination'
 
 export function Transactions() {
-  const { transactions, allTransactions, renderPagination } =
-    useContext(TransactionsContext)
+  const {
+    transactionsPerPage,
+    allTransactions,
+    renderPagination,
+    removeTransaction,
+  } = useContext(TransactionsContext)
+
+  async function handleRemoveNewTransaction(id: number) {
+    await removeTransaction(id)
+  }
 
   return (
     <div>
@@ -29,7 +38,7 @@ export function Transactions() {
         <SearchForm />
         <TransactionsList>
           {renderPagination
-            ? transactions.map((transaction) => {
+            ? transactionsPerPage.map((transaction) => {
                 return (
                   <TransactionCard key={transaction.id}>
                     <TransactionCardText>
@@ -57,6 +66,14 @@ export function Transactions() {
                             new Date(transaction.createdAt),
                           )}
                         </p>
+                        <IconContainer>
+                          <Trash
+                            size={20}
+                            onClick={() =>
+                              handleRemoveNewTransaction(transaction.id)
+                            }
+                          />
+                        </IconContainer>
                       </DateItem>
                     </TransactionCardData>
                   </TransactionCard>
@@ -92,6 +109,9 @@ export function Transactions() {
                         </p>
                       </DateItem>
                     </TransactionCardData>
+                    <IconContainer>
+                      <Trash size={20} />
+                    </IconContainer>
                   </TransactionCard>
                 )
               })}

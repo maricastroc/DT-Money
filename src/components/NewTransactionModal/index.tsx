@@ -3,7 +3,7 @@ import * as Select from '@radix-ui/react-select'
 
 import { X, ArrowCircleUp, ArrowCircleDown } from 'phosphor-react'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import * as z from 'zod'
 
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -17,6 +17,7 @@ import {
   TransactionTypeButton,
 } from './styles'
 import { SelectInput } from './components/SelectInput'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
 
 const NewTransactionFormSchema = z.object({
   description: z.string().min(1, 'Description is required'),
@@ -28,6 +29,7 @@ const NewTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof NewTransactionFormSchema>
 
 export function NewTransactionModal() {
+  const { createTransaction } = useContext(TransactionsContext)
   const {
     control,
     register,
@@ -45,8 +47,14 @@ export function NewTransactionModal() {
     setIsOpen(!isOpen)
   }
 
-  function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-    console.log(data)
+  async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
+    const { description, price, category, type } = data
+    await createTransaction({
+      description,
+      price,
+      category,
+      type,
+    })
   }
 
   return (

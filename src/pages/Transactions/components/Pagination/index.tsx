@@ -5,7 +5,7 @@ import { CaretLeft, CaretRight } from 'phosphor-react'
 import classNames from 'classnames'
 
 export function Pagination() {
-  const { allTransactions, transactions, pagination, setPagination } =
+  const { allTransactions, transactionsPerPage, pagination, setPagination } =
     useContext(TransactionsContext)
 
   const handleChangePage = (
@@ -57,7 +57,8 @@ export function Pagination() {
         size={32}
         className={classNames({
           unabled:
-            pagination === 3 || (pagination === 2 && transactions.length < 10),
+            pagination === 3 ||
+            (pagination === 2 && transactionsPerPage.length < 10),
         })}
         onClick={() => setPagination(pagination + 1)}
       />

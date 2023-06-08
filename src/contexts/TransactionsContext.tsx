@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useEffect, useState } from 'react'
+import { api } from '../lib/axios'
 
 export interface Transaction {
   id: number
@@ -9,14 +10,23 @@ export interface Transaction {
   createdAt: string
 }
 
+interface CreateTransactionInput {
+  description: string
+  price: number
+  category: string
+  type: 'income' | 'outcome'
+}
+
 interface TransactionsContextType {
   allTransactions: Transaction[]
-  transactions: Transaction[]
+  transactionsPerPage: Transaction[]
   pagination: number
   setPagination: (value: number) => void
   fetchTransactions: (query?: string) => Promise<void>
   renderPagination: boolean
   setRenderPagination: (value: boolean) => void
+  createTransaction: (data: CreateTransactionInput) => Promise<void>
+  removeTransaction: (id: number) => Promise<void>
 }
 
 interface TransactionsProviderProps {
@@ -27,21 +37,49 @@ export const TransactionsContext = createContext({} as TransactionsContextType)
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [allTransactions, setAllTransactions] = useState<Transaction[]>([])
-  const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [transactionsPerPage, setTransactionsPerPage] = useState<Transaction[]>(
+    [],
+  )
   const [pagination, setPagination] = useState(1)
   const [renderPagination, setRenderPagination] = useState(true)
 
   async function fetchTransactions(query?: string) {
-    const url = new URL(`http://localhost:3000/transactions`)
+    const response = await api.get('transactions', {
+      params: {
+        q: query,
+        _sort: 'createdAt',
+        _order: 'desc',
+      },
+    })
 
-    if (query) {
-      url.searchParams.append('q', query)
-    }
+    setAllTransactions(response.data)
+  }
 
-    const response = await fetch(url)
-    const data = await response.json()
+  async function createTransaction(data: CreateTransactionInput) {
+    const { description, price, category, type } = data
+    const response = await api.post('transactions', {
+      description,
+      price,
+      category,
+      type,
+      createdAt: new Date(),
+    })
 
-    setAllTransactions(data)
+    setAllTransactions((state) => [response.data, ...state])
+
+    setTransactionsPerPage((state) => [response.data, ...state])
+  }
+
+  async function removeTransaction(id: number) {
+    await api.delete(`transactions/${id}`)
+
+    setAllTransactions((state) =>
+      state.filter((transaction) => transaction.id !== id),
+    )
+
+    setTransactionsPerPage((state) =>
+      state.filter((transaction) => transaction.id !== id),
+    )
   }
 
   useEffect(() => {
@@ -50,12 +88,16 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
 
   useEffect(() => {
     async function fetchTransactionsPagination() {
-      const response = await fetch(
-        `http://localhost:3000/transactions?_page=${pagination}&_limit=10`,
-      )
-      const data = await response.json()
+      const response = await api.get('transactions', {
+        params: {
+          _page: `${pagination}`,
+          limit: '10',
+          _sort: 'createdAt',
+          _order: 'desc',
+        },
+      })
 
-      setTransactions(data)
+      setTransactionsPerPage(response.data)
     }
 
     fetchTransactionsPagination()
@@ -63,12 +105,14 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
 
   const TransactionsContextValue: TransactionsContextType = {
     allTransactions,
-    transactions,
+    transactionsPerPage,
     pagination,
     setPagination,
     fetchTransactions,
     renderPagination,
     setRenderPagination,
+    createTransaction,
+    removeTransaction,
   }
 
   return (

@@ -70,7 +70,7 @@ export const TransactionCardText = styled.div`
     }
 
     p {
-      width: 28rem;
+      width: 25rem;
     }
   }
 `
@@ -86,6 +86,20 @@ export const TransactionCardData = styled.div`
     margin-top: 0;
     width: 70%;
     opacity: 1;
+  }
+`
+
+export const IconContainer = styled.div`
+  display: flex;
+  margin-left: 2rem;
+
+  svg {
+    cursor: pointer;
+    color: ${(props) => props.theme['gray-400']};
+
+    &:hover {
+      color: ${(props) => props.theme.white};
+    }
   }
 `
 

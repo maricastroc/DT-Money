@@ -38,7 +38,14 @@ export function SearchForm() {
         spellCheck={false}
         {...register('query')}
       />
-      <X size={20} onClick={() => reset()} />
+      <X
+        size={20}
+        onClick={() => {
+          setRenderPagination(true)
+          fetchTransactions()
+          reset()
+        }}
+      />
       <button type="submit" disabled={isSubmitting || !isValid}>
         <MagnifyingGlass size={20} />
         <span>Search</span>
