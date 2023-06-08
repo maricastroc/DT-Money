@@ -50,10 +50,20 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     font-size: 1.5rem;
   }
 
+  p {
+    font-size: 0.85rem;
+    color: ${(props) => props.theme['gray-300']};
+    margin-top: 1rem;
+  }
+
   ${(props) =>
     props.variant === 'blue' &&
     css`
       background-color: ${(props) => props.theme['blue-700']};
+
+      span {
+        color: ${(props) => props.theme.white};
+      }
     `};
 
   @media (min-width: 625px) {

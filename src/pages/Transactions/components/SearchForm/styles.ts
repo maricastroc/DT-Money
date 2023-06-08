@@ -5,9 +5,43 @@ export const SearchFormContainer = styled.form`
   display: flex;
   gap: 0.5rem;
 
-  input {
-    appearance: none;
+  div {
     position: relative;
+    width: 100%;
+
+    > svg {
+      cursor: pointer;
+      position: absolute;
+      left: 89%;
+      top: 32.5%;
+      color: ${(props) => props.theme['gray-400']};
+
+      @media (min-width: 380px) {
+        left: 91%;
+      }
+
+      @media (min-width: 485px) {
+        left: 93%;
+      }
+
+      @media (min-width: 575px) {
+        left: 94%;
+      }
+
+      @media (min-width: 715px) {
+        left: 95.5%;
+      }
+
+      @media (min-width: 900px) {
+        left: 96.5%;
+        top: 32.5%;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    appearance: none;
     flex: 1;
     border-radius: 6px;
     border: 1px solid ${(props) => props.theme['gray-900']};
@@ -29,14 +63,6 @@ export const SearchFormContainer = styled.form`
     &::placeholder {
       color: ${(props) => props.theme['gray-500']};
     }
-  }
-
-  > svg {
-    cursor: pointer;
-    position: absolute;
-    left: 74.5%;
-    top: 49.2%;
-    color: ${(props) => props.theme['gray-400']};
   }
 
   button {

@@ -48,7 +48,7 @@ export const Logo = styled.img`
 export const TransactionBtn = styled.button`
   cursor: pointer;
   border: none;
-  background-color: ${(props) => props.theme['blue-500']};
+  background-color: ${(props) => props.theme['blue-700']};
   color: ${(props) => props.theme.white};
   padding: 0.7rem 1rem;
   border-radius: 8px;
@@ -57,7 +57,7 @@ export const TransactionBtn = styled.button`
   font-size: 0.8rem;
 
   &:hover {
-    background-color: ${(props) => props.theme['blue-700']};
+    background-color: ${(props) => props.theme['blue-500']};
     transition: 200ms;
     border: none;
   }

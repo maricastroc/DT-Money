@@ -20,6 +20,7 @@ export function Pagination() {
   return (
     <PaginationContainer>
       <CaretLeft
+        alt="Go left"
         size={32}
         className={pagination === 1 ? 'unabled' : ''}
         onClick={() => setPagination(pagination - 1)}
@@ -54,6 +55,7 @@ export function Pagination() {
         </PageButton>
       </PagesContainer>
       <CaretRight
+        alt="Go right"
         size={32}
         className={classNames({
           unabled:

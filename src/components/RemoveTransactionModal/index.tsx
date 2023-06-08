@@ -1,5 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { useContext } from 'react'
+
 import {
   ConfirmButton,
   ButtonsContainer,
@@ -9,11 +10,14 @@ import {
   Title,
   TransactionData,
 } from './styles'
+
 import {
   Transaction,
   TransactionsContext,
 } from '../../contexts/TransactionsContext'
+
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
+
 import { Check, X } from 'phosphor-react'
 
 export function RemoveTransactionModal() {
@@ -64,11 +68,11 @@ export function RemoveTransactionModal() {
                 handleRemoveNewTransaction(transactionToRemove)
             }}
           >
-            <Check size={22} />
+            <Check size={22} alt="Confirm remove transaction" />
             Yes, delete it.
           </ConfirmButton>
           <CloseButton>
-            <X size={22} />
+            <X size={22} alt="Cancel remove transaction" />
             No, cancel it!
           </CloseButton>
         </ButtonsContainer>

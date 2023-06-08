@@ -1,7 +1,12 @@
 import { useContext } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
+
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { SearchForm } from './components/SearchForm'
+import { RemoveTransactionModal } from '../../components/RemoveTransactionModal'
+import { Pagination } from './components/Pagination'
+
 import {
   DateItem,
   IconContainer,
@@ -13,12 +18,10 @@ import {
   Tag,
   TransactionCard,
 } from './styles'
+
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { TagSimple, CalendarBlank, Trash } from 'phosphor-react'
-import { Pagination } from './components/Pagination'
-import * as Dialog from '@radix-ui/react-dialog'
-import { RemoveTransactionModal } from '../../components/RemoveTransactionModal'
 
 export function Transactions() {
   const {
@@ -51,13 +54,13 @@ export function Transactions() {
                     <TransactionCardData>
                       <Tag>
                         <span>
-                          <TagSimple size={16} />
+                          <TagSimple size={16} alt="Tag Icon" />
                         </span>
                         <p>{transaction.category}</p>
                       </Tag>
                       <DateItem>
                         <span>
-                          <CalendarBlank size={16} />
+                          <CalendarBlank size={16} alt="Calendar Icon" />
                         </span>
                         <p>
                           {dateFormatter.format(
@@ -68,6 +71,7 @@ export function Transactions() {
                           <Dialog.Trigger asChild>
                             <IconContainer>
                               <Trash
+                                alt="Trash Icon"
                                 size={20}
                                 onClick={() =>
                                   setTransactionToRemove(transaction)
@@ -97,13 +101,13 @@ export function Transactions() {
                     <TransactionCardData>
                       <Tag>
                         <span>
-                          <TagSimple size={16} />
+                          <TagSimple size={16} alt="Tag Icon" />
                         </span>
                         <p>{transaction.category}</p>
                       </Tag>
                       <DateItem>
                         <span>
-                          <CalendarBlank size={16} />
+                          <CalendarBlank size={16} alt="Calendar Icon" />
                         </span>
                         <p>
                           {dateFormatter.format(
@@ -114,6 +118,7 @@ export function Transactions() {
                           <Dialog.Trigger asChild>
                             <IconContainer>
                               <Trash
+                                alt="Trash Icon"
                                 size={20}
                                 onClick={() =>
                                   setTransactionToRemove(transaction)

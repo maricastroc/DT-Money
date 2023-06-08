@@ -12,7 +12,7 @@ export const Overlay = styled(Dialog.Overlay)`
 export const Content = styled(Dialog.Content)`
   min-width: 100%;
   border-radius: 12px;
-  padding: 2rem 1.5rem;
+  padding: 2rem;
   background-color: ${(props) => props.theme['gray-800']};
   position: fixed;
   top: 50%;
@@ -45,7 +45,7 @@ export const Title = styled(Dialog.Title)`
 export const TransactionData = styled.ul`
   text-align: left;
   list-style-type: none;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 
   li + li {
@@ -60,12 +60,24 @@ export const TransactionData = styled.ul`
   span {
     text-transform: capitalize;
   }
+
+  @media (min-width: 625px) {
+    width: 80%;
+  }
 `
 
 export const ButtonsContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 2rem auto 0;
-  gap: 1.5rem;
+  gap: 1rem;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
 `
 
 // eslint-disable-next-line prettier/prettier

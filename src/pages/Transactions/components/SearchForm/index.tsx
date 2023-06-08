@@ -32,22 +32,26 @@ export function SearchForm() {
 
   return (
     <SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
-      <input
-        type="text"
-        placeholder="Search for a transaction"
-        spellCheck={false}
-        {...register('query')}
-      />
-      <X
-        size={20}
-        onClick={() => {
-          setRenderPagination(true)
-          fetchTransactions()
-          reset()
-        }}
-      />
+      <div>
+        <input
+          type="text"
+          aria-label="Search for a transaction"
+          placeholder="Search for a transaction"
+          spellCheck={false}
+          {...register('query')}
+        />
+        <X
+          size={20}
+          alt="Clear search"
+          onClick={() => {
+            setRenderPagination(true)
+            fetchTransactions()
+            reset()
+          }}
+        />
+      </div>
       <button type="submit" disabled={isSubmitting || !isValid}>
-        <MagnifyingGlass size={20} />
+        <MagnifyingGlass size={20} alt="Search" />
         <span>Search</span>
       </button>
     </SearchFormContainer>

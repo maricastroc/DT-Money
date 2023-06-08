@@ -63,11 +63,12 @@ export function NewTransactionModal() {
       <Content>
         <Dialog.Title>New Transaction</Dialog.Title>
         <CloseButton>
-          <X size={24} />
+          <X size={24} alt="Close Button" />
         </CloseButton>
         <form action="" onSubmit={handleSubmit(handleCreateNewTransaction)}>
           <input
             placeholder="Description"
+            aria-label="Description"
             spellCheck={false}
             type="text"
             required
@@ -75,6 +76,7 @@ export function NewTransactionModal() {
           />
           <input
             placeholder="Price"
+            aria-label="Price"
             spellCheck={false}
             type="number"
             required
@@ -84,6 +86,7 @@ export function NewTransactionModal() {
           <Controller
             control={control}
             name="category"
+            aria-label="Category"
             render={({ field }) => {
               return (
                 <Select.Root
@@ -100,6 +103,7 @@ export function NewTransactionModal() {
           <Controller
             control={control}
             name="type"
+            aria-label="Type"
             render={({ field }) => {
               return (
                 <TransactionType
@@ -108,11 +112,11 @@ export function NewTransactionModal() {
                 >
                   <TransactionTypeButton value="income" variant="income">
                     Incomes
-                    <ArrowCircleUp size={24} />
+                    <ArrowCircleUp size={24} alt="Incomes" />
                   </TransactionTypeButton>
                   <TransactionTypeButton value="outcome" variant="outcome">
                     Outcomes
-                    <ArrowCircleDown size={24} />
+                    <ArrowCircleDown size={24} alt="Outcomes" />
                   </TransactionTypeButton>
                 </TransactionType>
               )

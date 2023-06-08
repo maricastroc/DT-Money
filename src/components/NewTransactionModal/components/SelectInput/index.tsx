@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectContent,
 } from './styles'
+
 import * as Select from '@radix-ui/react-select'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
 

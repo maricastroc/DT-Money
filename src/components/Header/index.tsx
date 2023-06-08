@@ -8,6 +8,7 @@ import {
   Title,
   TransactionBtn,
 } from './styles'
+
 import { NewTransactionModal } from '../NewTransactionModal'
 
 export function Header() {
