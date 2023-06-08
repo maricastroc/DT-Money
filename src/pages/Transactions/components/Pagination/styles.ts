@@ -49,5 +49,9 @@ export const PageButton = styled.button`
   &.off {
     cursor: not-allowed;
     background-color: ${(props) => props.theme['gray-700']};
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 `

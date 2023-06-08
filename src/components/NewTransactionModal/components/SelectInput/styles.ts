@@ -11,6 +11,7 @@ export const SelectTrigger = styled(Select.SelectTrigger)`
   padding: 1rem;
   background-color: ${(props) => props.theme['gray-900']};
   color: ${(props) => props.theme['gray-500']};
+  z-index: 10;
 
   &::placeholder {
     color: ${(props) => props.theme['gray-500']};
@@ -20,10 +21,6 @@ export const SelectTrigger = styled(Select.SelectTrigger)`
     color: ${(props) => props.theme['gray-500']};
     border: 0;
   }
-`
-
-export const SelectIcon = styled(Select.SelectIcon)`
-  color: ${(props) => props.theme['gray-500']};
 `
 
 export const SelectContent = styled(Select.SelectContent)`

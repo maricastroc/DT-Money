@@ -14,6 +14,15 @@ export const SearchFormContainer = styled.form`
     color: ${(props) => props.theme['gray-300']};
     padding: 1rem;
 
+    &::selection {
+      background-color: ${(props) => props.theme['gray-900']};
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill-selection {
+      background-color: ${(props) => props.theme['gray-900']} !important;
+    }
+
     &::placeholder {
       color: ${(props) => props.theme['gray-500']};
     }

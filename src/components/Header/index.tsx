@@ -14,7 +14,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <LogoContainer>
+        <LogoContainer onClick={() => location.reload()}>
           <Logo src="./assets/icon.svg" alt="" />
           <Title>DT Money</Title>
         </LogoContainer>

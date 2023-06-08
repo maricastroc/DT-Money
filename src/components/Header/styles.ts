@@ -17,6 +17,7 @@ export const HeaderContent = styled.header`
 `
 
 export const LogoContainer = styled.div`
+  cursor: pointer;
   display: flex;
   gap: 0.5rem;
   align-items: center;

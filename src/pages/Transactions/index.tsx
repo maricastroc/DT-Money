@@ -18,7 +18,8 @@ import { TagSimple, CalendarBlank } from 'phosphor-react'
 import { Pagination } from './components/Pagination'
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext)
+  const { transactions, allTransactions, renderPagination } =
+    useContext(TransactionsContext)
 
   return (
     <div>
@@ -27,37 +28,73 @@ export function Transactions() {
       <TransactionsContainer>
         <SearchForm />
         <TransactionsList>
-          {transactions.map((transaction) => {
-            return (
-              <TransactionCard key={transaction.id}>
-                <TransactionCardText>
-                  <p>{transaction.description}</p>
-                  <strong>
-                    <PriceHighlight variant={transaction.type}>
-                      {transaction.type === 'outcome' && '- '}
-                      {priceFormatter.format(transaction.price)}
-                    </PriceHighlight>
-                  </strong>
-                </TransactionCardText>
-                <TransactionCardData>
-                  <Tag>
-                    <span>
-                      <TagSimple size={16} />
-                    </span>
-                    <p>{transaction.category}</p>
-                  </Tag>
-                  <DateItem>
-                    <span>
-                      <CalendarBlank size={16} />
-                    </span>
-                    <p>
-                      {dateFormatter.format(new Date(transaction.createdAt))}
-                    </p>
-                  </DateItem>
-                </TransactionCardData>
-              </TransactionCard>
-            )
-          })}
+          {renderPagination
+            ? transactions.map((transaction) => {
+                return (
+                  <TransactionCard key={transaction.id}>
+                    <TransactionCardText>
+                      <p>{transaction.description}</p>
+                      <strong>
+                        <PriceHighlight variant={transaction.type}>
+                          {transaction.type === 'outcome' && '- '}
+                          {priceFormatter.format(transaction.price)}
+                        </PriceHighlight>
+                      </strong>
+                    </TransactionCardText>
+                    <TransactionCardData>
+                      <Tag>
+                        <span>
+                          <TagSimple size={16} />
+                        </span>
+                        <p>{transaction.category}</p>
+                      </Tag>
+                      <DateItem>
+                        <span>
+                          <CalendarBlank size={16} />
+                        </span>
+                        <p>
+                          {dateFormatter.format(
+                            new Date(transaction.createdAt),
+                          )}
+                        </p>
+                      </DateItem>
+                    </TransactionCardData>
+                  </TransactionCard>
+                )
+              })
+            : allTransactions.map((transaction) => {
+                return (
+                  <TransactionCard key={transaction.id}>
+                    <TransactionCardText>
+                      <p>{transaction.description}</p>
+                      <strong>
+                        <PriceHighlight variant={transaction.type}>
+                          {transaction.type === 'outcome' && '- '}
+                          {priceFormatter.format(transaction.price)}
+                        </PriceHighlight>
+                      </strong>
+                    </TransactionCardText>
+                    <TransactionCardData>
+                      <Tag>
+                        <span>
+                          <TagSimple size={16} />
+                        </span>
+                        <p>{transaction.category}</p>
+                      </Tag>
+                      <DateItem>
+                        <span>
+                          <CalendarBlank size={16} />
+                        </span>
+                        <p>
+                          {dateFormatter.format(
+                            new Date(transaction.createdAt),
+                          )}
+                        </p>
+                      </DateItem>
+                    </TransactionCardData>
+                  </TransactionCard>
+                )
+              })}
         </TransactionsList>
         <Pagination />
       </TransactionsContainer>

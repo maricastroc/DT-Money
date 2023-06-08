@@ -3,7 +3,6 @@ import {
   SelectGroup,
   SelectViewport,
   SelectTrigger,
-  SelectIcon,
   SelectContent,
 } from './styles'
 import * as Select from '@radix-ui/react-select'
@@ -14,9 +13,9 @@ export function SelectInput() {
     <>
       <SelectTrigger aria-label="Category">
         <Select.Value placeholder="Category" />
-        <SelectIcon className="SelectIcon">
+        <Select.Icon className="SelectIcon">
           <ChevronDownIcon />
-        </SelectIcon>
+        </Select.Icon>
       </SelectTrigger>
       <SelectContent className="SelectContent">
         <SelectViewport className="SelectViewport">

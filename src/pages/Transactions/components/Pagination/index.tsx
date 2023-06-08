@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { TransactionsContext } from '../../../../contexts/TransactionsContext'
 import { PageButton, PagesContainer, PaginationContainer } from './styles'
 import { CaretLeft, CaretRight } from 'phosphor-react'
@@ -7,6 +7,15 @@ import classNames from 'classnames'
 export function Pagination() {
   const { allTransactions, transactions, pagination, setPagination } =
     useContext(TransactionsContext)
+
+  const handleChangePage = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    page: number,
+  ) => {
+    if (!event.currentTarget.classList.contains('off')) {
+      setPagination(page)
+    }
+  }
 
   return (
     <PaginationContainer>
@@ -17,14 +26,14 @@ export function Pagination() {
       />
       <PagesContainer defaultValue="1">
         <PageButton
-          onClick={() => setPagination(1)}
+          onClick={(event) => handleChangePage(event, 1)}
           value="1"
           className={pagination === 1 ? 'active' : ''}
         >
           1
         </PageButton>
         <PageButton
-          onClick={() => setPagination(2)}
+          onClick={(event) => handleChangePage(event, 2)}
           value="2"
           className={classNames({
             active: pagination === 2,
@@ -35,7 +44,7 @@ export function Pagination() {
         </PageButton>
         <PageButton
           value="3"
-          onClick={() => setPagination(3)}
+          onClick={(event) => handleChangePage(event, 3)}
           className={classNames({
             active: pagination === 3,
             off: allTransactions.length < 20,

@@ -33,6 +33,10 @@ export const Content = styled(Dialog.Content)`
       color: ${(props) => props.theme['gray-300']};
       padding: 1rem;
 
+      &::selection {
+        background-color: ${(props) => props.theme['gray-900']};
+      }
+
       &::placeholder {
         color: ${(props) => props.theme['gray-500']};
       }
@@ -49,7 +53,12 @@ export const Content = styled(Dialog.Content)`
       border-radius: 6px;
       margin-top: 1.5rem;
 
-      &:hover {
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
         background-color: ${(props) => props.theme['blue-700']};
         transition: background-color 200ms;
       }

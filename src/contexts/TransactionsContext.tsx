@@ -14,6 +14,9 @@ interface TransactionsContextType {
   transactions: Transaction[]
   pagination: number
   setPagination: (value: number) => void
+  fetchTransactions: (query?: string) => Promise<void>
+  renderPagination: boolean
+  setRenderPagination: (value: boolean) => void
 }
 
 interface TransactionsProviderProps {
@@ -26,20 +29,27 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [allTransactions, setAllTransactions] = useState<Transaction[]>([])
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [pagination, setPagination] = useState(1)
+  const [renderPagination, setRenderPagination] = useState(true)
 
-  useEffect(() => {
-    async function loadTransactions() {
-      const response = await fetch(`http://localhost:3000/transactions`)
-      const data = await response.json()
+  async function fetchTransactions(query?: string) {
+    const url = new URL(`http://localhost:3000/transactions`)
 
-      setAllTransactions(data)
+    if (query) {
+      url.searchParams.append('q', query)
     }
 
-    loadTransactions()
-  }, [pagination])
+    const response = await fetch(url)
+    const data = await response.json()
+
+    setAllTransactions(data)
+  }
 
   useEffect(() => {
-    async function loadTransactions() {
+    fetchTransactions()
+  }, [])
+
+  useEffect(() => {
+    async function fetchTransactionsPagination() {
       const response = await fetch(
         `http://localhost:3000/transactions?_page=${pagination}&_limit=10`,
       )
@@ -48,7 +58,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       setTransactions(data)
     }
 
-    loadTransactions()
+    fetchTransactionsPagination()
   }, [pagination])
 
   const TransactionsContextValue: TransactionsContextType = {
@@ -56,6 +66,9 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     transactions,
     pagination,
     setPagination,
+    fetchTransactions,
+    renderPagination,
+    setRenderPagination,
   }
 
   return (
