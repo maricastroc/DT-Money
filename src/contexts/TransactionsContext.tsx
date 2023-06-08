@@ -27,6 +27,8 @@ interface TransactionsContextType {
   setRenderPagination: (value: boolean) => void
   createTransaction: (data: CreateTransactionInput) => Promise<void>
   removeTransaction: (id: number) => Promise<void>
+  transactionToRemove: Transaction | null
+  setTransactionToRemove: (transaction: Transaction | null) => void
 }
 
 interface TransactionsProviderProps {
@@ -42,6 +44,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   )
   const [pagination, setPagination] = useState(1)
   const [renderPagination, setRenderPagination] = useState(true)
+  const [transactionToRemove, setTransactionToRemove] =
+    useState<Transaction | null>(null)
 
   async function fetchTransactions(query?: string) {
     const response = await api.get('transactions', {
@@ -113,6 +117,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     setRenderPagination,
     createTransaction,
     removeTransaction,
+    transactionToRemove,
+    setTransactionToRemove,
   }
 
   return (

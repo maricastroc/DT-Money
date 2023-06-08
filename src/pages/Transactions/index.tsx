@@ -17,18 +17,16 @@ import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { TagSimple, CalendarBlank, Trash } from 'phosphor-react'
 import { Pagination } from './components/Pagination'
+import * as Dialog from '@radix-ui/react-dialog'
+import { RemoveTransactionModal } from '../../components/RemoveTransactionModal'
 
 export function Transactions() {
   const {
     transactionsPerPage,
     allTransactions,
     renderPagination,
-    removeTransaction,
+    setTransactionToRemove,
   } = useContext(TransactionsContext)
-
-  async function handleRemoveNewTransaction(id: number) {
-    await removeTransaction(id)
-  }
 
   return (
     <div>
@@ -66,14 +64,19 @@ export function Transactions() {
                             new Date(transaction.createdAt),
                           )}
                         </p>
-                        <IconContainer>
-                          <Trash
-                            size={20}
-                            onClick={() =>
-                              handleRemoveNewTransaction(transaction.id)
-                            }
-                          />
-                        </IconContainer>
+                        <Dialog.Root>
+                          <Dialog.Trigger asChild>
+                            <IconContainer>
+                              <Trash
+                                size={20}
+                                onClick={() =>
+                                  setTransactionToRemove(transaction)
+                                }
+                              />
+                            </IconContainer>
+                          </Dialog.Trigger>
+                          <RemoveTransactionModal />
+                        </Dialog.Root>
                       </DateItem>
                     </TransactionCardData>
                   </TransactionCard>
@@ -107,11 +110,21 @@ export function Transactions() {
                             new Date(transaction.createdAt),
                           )}
                         </p>
+                        <Dialog.Root>
+                          <Dialog.Trigger asChild>
+                            <IconContainer>
+                              <Trash
+                                size={20}
+                                onClick={() =>
+                                  setTransactionToRemove(transaction)
+                                }
+                              />
+                            </IconContainer>
+                          </Dialog.Trigger>
+                          <RemoveTransactionModal />
+                        </Dialog.Root>
                       </DateItem>
                     </TransactionCardData>
-                    <IconContainer>
-                      <Trash size={20} />
-                    </IconContainer>
                   </TransactionCard>
                 )
               })}

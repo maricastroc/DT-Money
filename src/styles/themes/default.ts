@@ -16,5 +16,5 @@ export const defaultTheme = {
 
   'orange-300': '#DD6554',
   'orange-500': '#B74E41',
-  'orange-700': '#703128',
+  'orange-700': '#843730',
 } as const

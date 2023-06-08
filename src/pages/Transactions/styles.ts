@@ -89,9 +89,11 @@ export const TransactionCardData = styled.div`
   }
 `
 
-export const IconContainer = styled.div`
+export const IconContainer = styled.button`
   display: flex;
   margin-left: 2rem;
+  background-color: transparent;
+  border: none;
 
   svg {
     cursor: pointer;
