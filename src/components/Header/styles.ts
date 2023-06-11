@@ -20,15 +20,17 @@ export const LogoContainer = styled.div`
   cursor: pointer;
   display: flex;
   gap: 0.5rem;
-  align-items: center;
+  align-items: flex-start;
 
   @media (min-width: 425px) {
     gap: 1rem;
+    align-items: center;
   }
 `
 
 export const Title = styled.strong`
-  font-size: 1rem;
+  font-size: 1.3rem;
+  margin-left: 0.2rem;
 
   @media (min-width: 425px) {
     font-size: 1.6rem;
@@ -37,10 +39,10 @@ export const Title = styled.strong`
 `
 
 export const Logo = styled.img`
-  width: 1.5rem;
+  width: 1.8rem;
   height: auto;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 425px) {
     width: 2.5rem;
   }
 `
@@ -50,7 +52,7 @@ export const TransactionBtn = styled.button`
   border: none;
   background-color: ${(props) => props.theme['blue-700']};
   color: ${(props) => props.theme.white};
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 0.6rem;
   border-radius: 8px;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
@@ -62,7 +64,7 @@ export const TransactionBtn = styled.button`
     border: none;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 425px) {
     font-size: 1rem;
     padding: 0.75rem 1.25rem;
   }
