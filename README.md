@@ -1,6 +1,6 @@
 # DT-Money
 <p align="center">
-    <img alt="Print" src="/assets/print.png](https://github.com/maricastroc/DT-Money/blob/main/public/assets/print.png" width="800px" />
+    <img alt="Print" src="https://github.com/maricastroc/DT-Money/blob/main/public/assets/print.png" width="800px" />
 </p>
 
 <br/>
