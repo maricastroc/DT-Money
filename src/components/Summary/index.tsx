@@ -18,10 +18,10 @@ export function Summary() {
           <ArrowCircleUp color="#06ABC1" alt="Incomes" />
         </header>
         <strong>{priceFormatter.format(summary.income)}</strong>
-        {lastOutcome?.createdAt && (
+        {dateStringFormatter(lastIncome?.createdAt) !== '' && (
           <p>
             Last entrance at {''}
-            {dateStringFormatter(lastOutcome?.createdAt)}
+            {dateStringFormatter(lastIncome?.createdAt)}
           </p>
         )}
       </SummaryCard>
@@ -31,10 +31,10 @@ export function Summary() {
           <ArrowCircleDown color="#DD6554" alt="Outcomes" />
         </header>
         <strong>{priceFormatter.format(summary.outcome)}</strong>
-        {lastIncome?.createdAt && (
+        {dateStringFormatter(lastOutcome?.createdAt) !== '' && (
           <p>
             Last entrance at {''}
-            {dateStringFormatter(lastIncome?.createdAt)}
+            {dateStringFormatter(lastOutcome?.createdAt)}
           </p>
         )}
       </SummaryCard>

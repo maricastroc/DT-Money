@@ -10,6 +10,10 @@ export const priceFormatter = new Intl.NumberFormat('en', {
 })
 
 export function dateStringFormatter(date: string) {
+  if (!date) {
+    return ''
+  }
+
   const dateParts = dateFormatter.format(new Date(date)).split('/')
 
   const formattedDate = new Date(`

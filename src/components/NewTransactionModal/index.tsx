@@ -29,11 +29,13 @@ const NewTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof NewTransactionFormSchema>
 
 export function NewTransactionModal() {
-  const { createTransaction } = useContext(TransactionsContext)
+  const { createTransaction, fetchTransactions, setRenderPagination } =
+    useContext(TransactionsContext)
   const {
     control,
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting, isValid },
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(NewTransactionFormSchema),
@@ -63,7 +65,7 @@ export function NewTransactionModal() {
       <Content>
         <Dialog.Title>New Transaction</Dialog.Title>
         <CloseButton>
-          <X size={24} alt="Close Button" />
+          <X size={24} alt="Close Button" onClick={() => reset()} />
         </CloseButton>
         <form action="" onSubmit={handleSubmit(handleCreateNewTransaction)}>
           <input
@@ -122,7 +124,14 @@ export function NewTransactionModal() {
               )
             }}
           />
-          <button type="submit" disabled={isSubmitting || !isValid}>
+          <button
+            type="submit"
+            disabled={isSubmitting || !isValid}
+            onClick={() => {
+              setRenderPagination(true)
+              fetchTransactions()
+            }}
+          >
             Register
           </button>
         </form>
