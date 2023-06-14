@@ -40,7 +40,7 @@
 > Clone the repository:
 
 ```bash
-git clone https://github.com/maricastroc/DT-Money
+git clone https://github.com/maricastroc/dt-money
 ```
 
 > Install the dependencies:
@@ -77,7 +77,7 @@ npm run dev:server
        <br />
        <a href="https://www.linkedin.com/in/mariana-castro-297586264/" title="Linkedin">@maricastroc</a>
        <br />
-       <a href="https://github.com/maricastroc/Coffee-Delivery" title="Code">💻</a>
+       <a href="https://github.com/maricastroc/dt-money" title="Code">💻</a>
     </td>
     <td align="center">
       <a href="http://github.com/rocketseat/">
