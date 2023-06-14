@@ -15,13 +15,10 @@
 <br/>
 <h2>:pushpin: What did I learn?</h2>
 
-<p>In this project, I had the opportunity to work with the json-server library to create simulated RESTful API, using a JSON file as a data source. In addition, I also used axios to perform asynchronous requests.</p>
+<p>In this project, I had the opportunity to work with the json-server library to create simulated RESTful API, using a JSON file as a data source. This way, the application is already prepared to make requests to any existing API. In addition, I also used axios to perform and flexibilize asynchronous requests.</p>
 
 <p>I was able to work with React Primitive through the radix-ui library, which provided increased flexibility, reusability, and accessibility for the primitive components used. For the transaction search and creation functionalities, I utilized React Hook Form and hookform/resolvers, incorporating zod for validation.</p>
 
-<br/>
-<h2>:mag: Links</h2>
-<li><a href="https://maricastroc-dt-money-site.netlify.app/" target="_blank">Preview Site</a></li>
 <br/>
 <h2>:computer: My Process</h2>
 <h3>Built with:</h3>
@@ -57,9 +54,13 @@ npm install
 ```bash
 npm run dev
 ```
+> Open the database build with json-server:
+```bash
+npm run dev:server
+```
 
-> :fast_forward: Access [http://localhost:3000](http://localhost:3000) to view the web application.
-<br/>
+> :fast_forward: Access [http://localhost:5173](http://localhost:3000) to view the web application, and [http://localhost:3000](http://localhost:3000) to view the web application database.
+</br>
 
 <h2>:coffee: Authors</h2>
 
