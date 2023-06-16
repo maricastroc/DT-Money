@@ -1,27 +1,25 @@
 # DT-Money
-<p align="center">
-    <img alt="Print" src="https://github.com/maricastroc/DT-Money/blob/main/public/assets/print.png" width="800px" />
-</p>
+![github-blog](https://github.com/maricastroc/DT-Money/blob/main/public/assets/print.png)
 
-<br/>
-<h2>:books: Project Description</h2>
-<p>In this project, I developed an application to control financial transactions, with the following functionalities:</p>
 
-<li>List of all financial transactions carried out</li>
-<li>Categorization of transactions according to classification of incomes and outcomes</li>
-<li>Categorization of transactions according to the type of transaction performed</li>
-<li>Creation and removal of new financial transactions</li>
-<li>Search for specific transaction through its name or its type</li>
-<br/>
-<h2>:pushpin: What did I learn?</h2>
+## 📚 Project Description
+In this project, I developed an application to control financial transactions, with the following functionalities:
 
-<p>In this project, I had the opportunity to work with the json-server library to create simulated RESTful API, using a JSON file as a data source. This way, the application is already prepared to make requests to any existing API. In addition, I also used axios to perform and flexibilize asynchronous requests.</p>
+- List of all financial transactions carried out
+- Categorization of transactions according to classification of incomes and outcomes
+- Categorization of transactions according to the type of transaction performed
+- Creation and removal of new financial transactions
+- Search for specific transaction through its name or its type
 
-<p>I was able to work with React Primitive through the radix-ui library, which provided increased flexibility, reusability, and accessibility for the primitive components used. For the transaction search and creation functionalities, I utilized React Hook Form and hookform/resolvers, incorporating zod for validation.</p>
+## 📌 What did I learn?</h2>
 
-<br/>
-<h2>:computer: My Process</h2>
-<h3>Built with:</h3>
+In this project, I had the opportunity to work with the json-server library to create simulated RESTful API, using a JSON file as a data source. This way, the application is already prepared to make requests to any existing API. In addition, I also used axios to perform and flexibilize asynchronous requests.</p>
+
+I was able to work with React Primitive through the radix-ui library, which provided increased flexibility, reusability, and accessibility for the primitive components used. For the transaction search and creation functionalities, I utilized React Hook Form and hookform/resolvers, incorporating zod for validation.
+
+
+## 💻 My Process
+### Built with:
 
 - [React](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
@@ -33,9 +31,9 @@
 - [styled-components](https://styled-components.com/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-<br/>
+- Mobile-first-workflow
 
-<h2>:information_source: How to run the application?</h2>
+## ℹ️ How to run the application?
 
 > Clone the repository:
 
@@ -60,37 +58,4 @@ npm run dev:server
 ```
 
 > :fast_forward: Access [http://localhost:5173](http://localhost:3000) to view the web application, and [http://localhost:3000](http://localhost:3000) to view the web application database.
-</br>
 
-<h2>:coffee: Authors</h2>
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="http://github.com/maricastroc/">
-        <img src="https://avatars.githubusercontent.com/u/121824373?s=400v=4" width="100px;" alt="Mariana Castro"/>
-        <br />
-        <sub>
-          <b>Mariana Castro</b>
-        </sub>
-       </a>
-       <br />
-       <a href="https://www.linkedin.com/in/mariana-castro-297586264/" title="Linkedin">@maricastroc</a>
-       <br />
-       <a href="https://github.com/maricastroc/dt-money" title="Code">💻</a>
-    </td>
-    <td align="center">
-      <a href="http://github.com/rocketseat/">
-        <img src="https://avatars.githubusercontent.com/u/28929274?s=200&v=4" width="100px;" alt="Rocketseat Logo"/>
-        <br />
-        <sub>
-          <b>Rocketseat</b>
-        </sub>
-       </a>
-       <br />
-       <a href="https://www.linkedin.com/school/rocketseat/" title="Linkedin">@rocketseat</a>
-       <br />
-       <a href="https://www.rocketseat.com.br/" title="Education Platform">🚀</a>
-    </td>
-  </tr>
-</table>
