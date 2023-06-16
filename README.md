@@ -11,12 +11,14 @@ In this project, I developed an application to control financial transactions, w
 - Creation and removal of new financial transactions
 - Search for specific transaction through its name or its type
 
-## 📌 What did I learn?</h2>
+## 📌 What did I learn?
 
-In this project, I had the opportunity to work with the json-server library to create simulated RESTful API, using a JSON file as a data source. This way, the application is already prepared to make requests to any existing API. In addition, I also used axios to perform and flexibilize asynchronous requests.</p>
+In this project, I had the opportunity to work with the json-server library to create simulated RESTful API, using a JSON file as a data source. This way, the application is already prepared to make requests to any existing API. In addition, I also used axios to perform and flexibilize asynchronous requests.
 
 I was able to work with React Primitive through the radix-ui library, which provided increased flexibility, reusability, and accessibility for the primitive components used. For the transaction search and creation functionalities, I utilized React Hook Form and hookform/resolvers, incorporating zod for validation.
 
+## 🔍 Links
+[Preview Site](https://app.netlify.com/sites/maricastroc-dt-money-site/overview)
 
 ## 💻 My Process
 ### Built with:
