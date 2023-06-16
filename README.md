@@ -1,5 +1,5 @@
 # DT-Money
-![github-blog](https://github.com/maricastroc/DT-Money/blob/main/public/assets/print.png)
+![dt-money](https://github.com/maricastroc/DT-Money/blob/main/public/assets/print.png)
 
 
 ## 📚 Project Description
